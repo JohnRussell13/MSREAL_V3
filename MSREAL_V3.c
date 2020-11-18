@@ -64,9 +64,9 @@ int main (int argc, char **argv)
 		//tval4 = str[5] - 48;
 		free(str);
 		
-		if(!btn) btn = tval1;
+		if(!tval1) btn = 1;
 		
-		if(btn){
+		if(btn && tval1){
 			// Upali diode
 			fp = fopen("/dev/led", "w");
 			if(fp == NULL)
