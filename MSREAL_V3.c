@@ -10,7 +10,7 @@ int main (int argc, char **argv)
 	char tval1,tval2,tval3,tval4;
 	size_t num_of_bytes = 6;
 	
-	char temp;
+	char temp, btn;
 
 	while(1)
 	{
@@ -64,7 +64,9 @@ int main (int argc, char **argv)
 		//tval4 = str[5] - 48;
 		free(str);
 		
-		if(tval1){
+		if(!btn) btn = tval1;
+		
+		if(btn){
 			// Upali diode
 			fp = fopen("/dev/led", "w");
 			if(fp == NULL)
@@ -88,9 +90,8 @@ int main (int argc, char **argv)
 				printf("Problem pri zatvaranju /dev/led\n");
 				return -1;
 			}
+			btn = 0;
 		}
 
-		
-		sleep(1);
 	}
 }
